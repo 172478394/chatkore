@@ -10,8 +10,7 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 
 ### app4gpt-API接入文档
 ##### API介绍
-API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Token，用于认证。当认证成功，系统会检查用户账户余额，如果余额不足，则返回
-> {'error': 'insufficient credits'}
+API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Token，用于认证。当认证成功，系统会检查用户账户余额，如果余额不足，则返回错误。
 
 ##### HTTP请求认证
 所有HTTP请求使用API Token进行认证。用户注册后，可以在首页找到自己的Token。在每一次API请求时，将Token带在Header中进行认证。请保护好你的Token！不要将自己的Token共享给他人或直接保存在客户端的代码中。
