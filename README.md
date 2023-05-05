@@ -1,6 +1,6 @@
 # app4gpt
 app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。有任何问题请加QQ群联系客服：群号[184652587](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=dl0-lSSB7epDNAvi95uX6qefnb4FBg-6&authKey=kTrKhqmrMXWfTSoDpMMYkPHYozmnmtiTyGWW%2FG6HP67fjZv8FtdgslFZG2YLKtGL&noverify=0&group_code=184652587)  
-[https://www.app4gpt.com](https://www.app4gpt.com)
+官网：[https://www.app4gpt.com](https://www.app4gpt.com)
 
 ### 相比OpenAI的主要优势
 - 不限制国内使用，可以用支付宝付款，没有封号风险。
