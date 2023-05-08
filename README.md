@@ -8,6 +8,12 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 - 兼容OpenAI接口格式，可以做到平替。API用法也可参考[官方文档](https://platform.openai.com/docs/api-reference/introduction)
 - 无最低消费金额与最低充值金额，可以作为本地测试开发的完美替代品。
 
+### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
+##### 修改service/.env文件
+- 设置OPENAI_API_KEY为app4gpt后台获取的Key
+- 设置OPENAI_API_BASE_URL为https://api.app4gpt.com
+- 由于网络延迟，建议把TIMEOUT_MS设置为180000或者更高
+
 ### app4gpt-API接入文档
 ##### API介绍
 API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Token，用于认证。当认证成功，系统会检查用户账户余额，如果余额不足，则返回错误。
