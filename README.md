@@ -1,7 +1,7 @@
 # app4gpt
 app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。有任何问题请加QQ群联系客服：群号[184652587](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=dl0-lSSB7epDNAvi95uX6qefnb4FBg-6&authKey=kTrKhqmrMXWfTSoDpMMYkPHYozmnmtiTyGWW%2FG6HP67fjZv8FtdgslFZG2YLKtGL&noverify=0&group_code=184652587)  
 官网：[https://www.app4gpt.com](https://www.app4gpt.com)  
-免部署版ChatGPT现已上线：[https://chat.app4gpt.com](https://chat.app4gpt.com)
+免部署版ChatGPT现已上线：[https://demo.app4gpt.com](https://demo.app4gpt.com)，现已支持GPT3.5和GPT4的切换。
 
 ### 相比OpenAI的主要优势
 - 不限制国内使用，可以用支付宝付款，没有封号风险。
@@ -107,6 +107,52 @@ content：信息的内容
 ##### 列出所有模型
 列出所有可以使用的模型，以及模型的基本信息。想了解模型可以做什么，模型间有什么不同，请参考OpenAI文档。
 > GET https://api.app4gpt.com/v1/models
+
+### 主要接口介绍-文本转向量
+##### 文本转向量 Embeddings
+计费说明：text-embedding-ada-002 模型的 Token 价格是 gpt-3.5-turbo 的六分之一，我们已动态折算为积分，请以积分为准。每次请求最低消费 4积分。
+> POST https://api.app4gpt.com/v1/embeddings
+Node.js示例
+```
+        const fetch = require("node-fetch");
+        fetch("https://api.app4gpt.com/v1/embeddings", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer 你的api_key",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            input: "哈哈哈哈哈",
+            model: "text-embedding-ada-002",
+          }),
+        });
+```
+##### 请求参数
+**model** 类型: string必填
+固定为 text-embedding-ada-002 专用于文本转向量
+返回示例
+```
+{
+        "object": "list",
+        "data": [
+          {
+            "object": "embedding",
+            "embedding": [
+              0.0023064255,
+              -0.009327292,
+              .... (1536 floats total for ada-002)
+              -0.0028842222,
+            ],
+            "index": 0
+          }
+        ],
+        "model": "text-embedding-ada-002",
+        "usage": {
+          "prompt_tokens": 8,
+          "total_tokens": 8
+        }
+      }
+```
 
 ### 主要接口介绍-会话补充
 ##### 会话补完
