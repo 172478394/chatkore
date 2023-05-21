@@ -128,8 +128,8 @@ Node.js示例
         });
 ```
 ##### 请求参数
-**model** 类型: string必填
-固定为 text-embedding-ada-002 专用于文本转向量
+**model** 类型: string必填  
+固定为 text-embedding-ada-002 专用于文本转向量  
 返回示例
 ```
 {
