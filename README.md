@@ -8,6 +8,7 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 - 无需代理即可访问，没有墙的阻拦。
 - 兼容OpenAI接口格式，可以做到平替。支持vscode插件，支持autoGPT，agentGPT。API用法也可参考[官方文档](https://platform.openai.com/docs/api-reference/introduction)
 - 无最低消费金额与最低充值金额，可以作为本地测试开发的完美替代品。
+- 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
 ##### 修改service/.env文件
