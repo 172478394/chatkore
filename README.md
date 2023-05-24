@@ -6,7 +6,7 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 ### 相比OpenAI的主要优势
 - 不限制国内使用，可以用支付宝付款，没有封号风险。
 - 无需代理即可访问，没有墙的阻拦。
-- 兼容OpenAI接口格式，可以做到平替。API用法也可参考[官方文档](https://platform.openai.com/docs/api-reference/introduction)
+- 兼容OpenAI接口格式，可以做到平替。支持vscode插件，支持autoGPT，agentGPT。API用法也可参考[官方文档](https://platform.openai.com/docs/api-reference/introduction)
 - 无最低消费金额与最低充值金额，可以作为本地测试开发的完美替代品。
 
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
