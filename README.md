@@ -13,6 +13,9 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 - 无最低消费金额与最低充值金额，可以作为本地测试开发的完美替代品。
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
+### 变更日志
+2023-06-15: 支持gpt-4-0613, gpt-3.5-turbo-0613, gpt-3.5-turbo-16k, gpt-3.5-turbo-16k-0613  
+
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
 ##### 修改service/.env文件
 - 设置OPENAI_API_KEY为app4gpt后台获取的Key
