@@ -1,7 +1,7 @@
-# app4gpt
-app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。有任何问题请加QQ群联系客服：群号[184652587](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=dl0-lSSB7epDNAvi95uX6qefnb4FBg-6&authKey=kTrKhqmrMXWfTSoDpMMYkPHYozmnmtiTyGWW%2FG6HP67fjZv8FtdgslFZG2YLKtGL&noverify=0&group_code=184652587)  
-官网：[https://www.app4gpt.com](https://www.app4gpt.com)  
-免部署版网页端现已上线：[https://demo.app4gpt.com](https://demo.app4gpt.com)，现已支持GPT3.5和GPT4的切换，GPT4没有每3小时25条消息的限制。无需翻墙，国内网络即可体验，注册即送100积分。
+# chatkore
+chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。有任何问题请加QQ群联系客服：群号[742077418](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=tUZP9cQ-wRDjYNMwZjvs7maNyixcIYB5&authKey=dzF1K7fXUdg%2BMf8zLoPp9L%2F9bvhkoVpyWQoZoEFW0WLeinAmx2OOHBGZfqAjrikl&noverify=0&group_code=742077418)  
+官网：[https://www.chatkore.com](https://www.chatkore.com)  
+免部署版网页端现已上线：[https://www.chatkore.com/chat](https://www.chatkore.com/chat)，现已支持GPT3.5和GPT4的切换，GPT4没有每3小时25条消息的限制。无需翻墙，国内网络即可体验，注册即送100积分。
 
 ### 相比OpenAI的主要优势
 - 不限制国内使用，可以用支付宝付款，没有封号风险。
@@ -18,11 +18,11 @@ app4gpt本意即为开发者提供优质稳定的OpenAI相关的API调用接口�
 
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
 ##### 修改service/.env文件
-- 设置OPENAI_API_KEY为app4gpt后台获取的Key
-- 设置OPENAI_API_BASE_URL为https://api.app4gpt.com
+- 设置OPENAI_API_KEY为chatkore后台获取的Key
+- 设置OPENAI_API_BASE_URL为https://api.chatkore.com
 - 由于网络延迟，建议把TIMEOUT_MS设置为180000或者更高
 
-### app4gpt-API接入文档
+### chatkore-API接入文档
 ##### API介绍
 API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Token，用于认证。当认证成功，系统会检查用户账户余额，如果余额不足，则返回错误。
 
@@ -35,7 +35,7 @@ API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Tok
 以下是一个API请求的示例。记住将$API_TOKEN替换为你自己的API Key。
 curl：
 ```
-        curl https://api.app4gpt.com/v1/chat/completions \
+        curl https://api.chatkore.com/v1/chat/completions \
             -H "Content-Type: application/json" \
             -H "Authorization:  Bearer $API_TOKEN" \
             -d '{
@@ -48,7 +48,7 @@ curl：
 Python：
 ```
         import requests
-        URL = 'https://api.app4gpt.com/v1/chat/completions'
+        URL = 'https://api.chatkore.com/v1/chat/completions'
         resp = requests.post(URL, json={
             'model': 'gpt-3.5-turbo',
             'messages': [{'role': 'user', 'content': '回复这是一个测试'}],
@@ -88,7 +88,7 @@ Python：
 ##### 聊天对话
 给定一个聊天对话，模型将返回一个聊天回答响应。
 创建聊天对话
-> POST https://api.app4gpt.com/v1/chat/completions
+> POST https://api.chatkore.com/v1/chat/completions
 
 ##### 请求参数
 **model** 类型: string必填  
@@ -113,16 +113,16 @@ content：信息的内容
 ### 主要接口介绍-模型
 ##### 列出所有模型
 列出所有可以使用的模型，以及模型的基本信息。想了解模型可以做什么，模型间有什么不同，请参考OpenAI文档。
-> GET https://api.app4gpt.com/v1/models
+> GET https://api.chatkore.com/v1/models
 
 ### 主要接口介绍-文本转向量
 ##### 文本转向量 Embeddings
 计费说明：text-embedding-ada-002 模型的 Token 价格是 gpt-3.5-turbo 的六分之一，我们已动态折算为积分，请以积分为准。每次请求最低消费 4积分。
-> POST https://api.app4gpt.com/v1/embeddings
+> POST https://api.chatkore.com/v1/embeddings
 Node.js示例
 ```
         const fetch = require("node-fetch");
-        fetch("https://api.app4gpt.com/v1/embeddings", {
+        fetch("https://api.chatkore.com/v1/embeddings", {
           method: "POST",
           headers: {
             Authorization: "Bearer 你的api_key",
@@ -167,7 +167,7 @@ Node.js示例
 ##### 会话补完
 会话补完是指根据用户的输入，自动补全对话。这个功能可以用于聊天机器人、自动问答等场景。
 创建补完对话
-> POST https://api.app4gpt.com/v1/completions
+> POST https://api.chatkore.com/v1/completions
 
 ##### 请求参数
 **model** 类型: string必填  
