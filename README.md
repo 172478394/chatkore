@@ -18,8 +18,8 @@ chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口
 
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
 ##### 修改service/.env文件
-- 设置OPENAI_API_KEY为chatkore后台获取的Key
-- 设置OPENAI_API_BASE_URL为https://api.chatkore.com
+- 设置OPENAI_API_KEY环境变量为chatkore后台获取的Key
+- 设置OPENAI_API_BASE_URL环境变量为：https://api.chatkore.com/v1
 - 由于网络延迟，建议把TIMEOUT_MS设置为180000或者更高
 
 ### chatkore-API接入文档
@@ -29,59 +29,59 @@ API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Tok
 ##### HTTP请求认证
 所有HTTP请求使用API Token进行认证。用户注册后，可以在首页找到自己的Token。在每一次API请求时，将Token带在Header中进行认证。请保护好你的Token！不要将自己的Token共享给他人或直接保存在客户端的代码中。
 所有API请求都应该包括API Token在Authorization HTTP Header中，比如：
-> Authorization:  Bearer YOUR_API_TOKEN
+> Authorization: Bearer YOUR_API_TOKEN
 
 ##### 请求示例
 以下是一个API请求的示例。记住将$API_TOKEN替换为你自己的API Key。
 curl：
 ```
-        curl https://api.chatkore.com/v1/chat/completions \
-            -H "Content-Type: application/json" \
-            -H "Authorization:  Bearer $API_TOKEN" \
-            -d '{
-                "model": "gpt-3.5-turbo",
-                "messages": [{"role": "user", "content": "Say this is a test!"}],
-                "temperature": 0.7
-            }'
+curl https://api.chatkore.com/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization:  Bearer $API_TOKEN" \
+    -d '{
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": "Say this is a test!"}],
+        "temperature": 0.7
+    }'
 ```
       
 Python：
 ```
-        import requests
-        URL = 'https://api.chatkore.com/v1/chat/completions'
-        resp = requests.post(URL, json={
-            'model': 'gpt-3.5-turbo',
-            'messages': [{'role': 'user', 'content': '回复这是一个测试'}],
-            'temperature': 0,
-        }, headers={
-            'Authorization': " Bearer $API_TOKEN"
-        })
-        print(resp.json())
+import requests
+URL = 'https://api.chatkore.com/v1/chat/completions'
+resp = requests.post(URL, json={
+    'model': 'gpt-3.5-turbo',
+    'messages': [{'role': 'user', 'content': '回复这是一个测试'}],
+    'temperature': 0,
+}, headers={
+    'Authorization': " Bearer $API_TOKEN"
+})
+print(resp.json())
 ```
       
 这个请求将调用gpt-3.5-turbo模型，完成对话。你将会得到类似如下的返回结果：
 ```
-        {
-          "id":"chatcmpl-abc123",
-          "object":"chat.completion",
-          "created":1677858242,
-          "model":"gpt-3.5-turbo-0301",
-          "usage":{
-              "prompt_tokens":13,
-              "completion_tokens":7,
-              "total_tokens":20
-          },
-          "choices":[
-              {
-                "message":{
-                    "role":"assistant",
-                    "content":"\n\nThis is a test!"
-                },
-                "finish_reason":"stop",
-                "index":0
-              }
-          ]
-        }
+{
+  "id":"chatcmpl-abc123",
+  "object":"chat.completion",
+  "created":1677858242,
+  "model":"gpt-3.5-turbo-0301",
+  "usage":{
+      "prompt_tokens":13,
+      "completion_tokens":7,
+      "total_tokens":20
+  },
+  "choices":[
+      {
+        "message":{
+            "role":"assistant",
+            "content":"\n\nThis is a test!"
+        },
+        "finish_reason":"stop",
+        "index":0
+      }
+  ]
+}
 ```
       
 ### 主要接口介绍-聊天
@@ -121,18 +121,18 @@ content：信息的内容
 > POST https://api.chatkore.com/v1/embeddings
 Node.js示例
 ```
-        const fetch = require("node-fetch");
-        fetch("https://api.chatkore.com/v1/embeddings", {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer 你的api_key",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            input: "哈哈哈哈哈",
-            model: "text-embedding-ada-002",
-          }),
-        });
+const fetch = require("node-fetch");
+fetch("https://api.chatkore.com/v1/embeddings", {
+  method: "POST",
+  headers: {
+    Authorization: "Bearer 你的api_key",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    input: "哈哈哈哈哈",
+    model: "text-embedding-ada-002",
+  }),
+});
 ```
 ##### 请求参数
 **model** 类型: string必填  
@@ -142,25 +142,25 @@ Node.js示例
 返回示例
 ```
 {
-        "object": "list",
-        "data": [
-          {
-            "object": "embedding",
-            "embedding": [
-              0.0023064255,
-              -0.009327292,
-              .... (1536 floats total for ada-002)
-              -0.0028842222,
-            ],
-            "index": 0
-          }
+    "object": "list",
+    "data": [
+    {
+        "object": "embedding",
+        "embedding": [
+            0.0023064255,
+            -0.009327292,
+            .... (1536 floats total for ada-002)
+            -0.0028842222,
         ],
-        "model": "text-embedding-ada-002",
-        "usage": {
-          "prompt_tokens": 8,
-          "total_tokens": 8
-        }
-      }
+        "index": 0
+    }
+    ],
+    "model": "text-embedding-ada-002",
+    "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+    }
+}
 ```
 
 ### 主要接口介绍-会话补充
