@@ -95,7 +95,7 @@ print(resp.json())
 要使用的模型ID。您可以使用"列出所有模型"API查看所有可用的模型，或查看我们的Model overview了解它们的描述。  
 **messages** 类型: array必填  
 生成聊天的提示消息，格式为JSON对象，包含以下字段：  
-role：角色，可以是system, assitant，或者是user  
+role：角色，可以是system，assitant，或者是user  
 content：信息的内容  
 **temperature** 类型: float可选 默认: 1  
 要使用的采样温度，介于0和2之间。较高的值（例如0.8）会使输出更随机，而较低的值（例如0.2）会使其更加集中和确定性。  
