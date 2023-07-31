@@ -2,8 +2,8 @@
 chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。有任何问题请加QQ群联系客服：群号[742077418](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=tUZP9cQ-wRDjYNMwZjvs7maNyixcIYB5&authKey=dzF1K7fXUdg%2BMf8zLoPp9L%2F9bvhkoVpyWQoZoEFW0WLeinAmx2OOHBGZfqAjrikl&noverify=0&group_code=742077418)  
 官网：[https://www.chatkore.com](https://www.chatkore.com)  
 免部署版网页端现已上线：[https://www.chatkore.com/chat](https://www.chatkore.com/chat)，现已支持GPT3.5和GPT4的切换，GPT4没有每3小时25条消息的限制。无需翻墙，国内网络即可体验，注册即送100积分。
-示例详细说明请关注知乎号：[https://www.zhihu.com/people/2f25274935e6eb5be025ccf0abb1d724](chatkore)  
-头条号：[https://profile.zjurl.cn/rogue/ugc/profile/?version_code=9.4.1&version_name=90401&user_id=4146953757669309&media_id=1665904070450180&request_source=1&active_tab=dongtai&device_id=65&app_name=news_article&share_token=8A0BC5FD-68F6-4982-A223-41BEE00B6BD9&tt_from=mobile_qq&utm_source=mobile_qq&utm_medium=toutiao_ios&utm_campaign=client_share](chatkore)
+示例详细说明请关注知乎号：[chatkore](https://www.zhihu.com/people/2f25274935e6eb5be025ccf0abb1d724 "chatkore知乎号")  
+头条号：[chatkore](https://profile.zjurl.cn/rogue/ugc/profile/?version_code=9.4.1&version_name=90401&user_id=4146953757669309&media_id=1665904070450180&request_source=1&active_tab=dongtai&device_id=65&app_name=news_article&share_token=8A0BC5FD-68F6-4982-A223-41BEE00B6BD9&tt_from=mobile_qq&utm_source=mobile_qq&utm_medium=toutiao_ios&utm_campaign=client_share "chatkore头条号")
 
 ### 相比OpenAI的主要优势
 - 不限制国内使用，可以用支付宝付款，没有封号风险。
