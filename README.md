@@ -17,10 +17,10 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
-2023-08-29: 加入本地知识库示例,目录：examples/ChatDemo/
-2023-08-20: 新版AI对话机器人上线,[AI对话机器人-chatkore](https://www.chatkore.com/newchat)
-2023-07-31: 加入数据分析机器人示例，目录：examples/analysisBot/
-2023-07-28: 加入语音聊天机器人示例，目录：examples/voiceChatBot/
+2023-08-29: 加入本地知识库示例，目录：examples/ChatDemo/  
+2023-08-20: 新版AI对话机器人上线，[新版AI对话机器人-chatkore](https://www.chatkore.com/newchat)  
+2023-07-31: 加入数据分析机器人示例，目录：examples/analysisBot/  
+2023-07-28: 加入语音聊天机器人示例，目录：examples/voiceChatBot/  
 2023-06-15: 支持gpt-4-0613，gpt-3.5-turbo-0613，gpt-3.5-turbo-16k，gpt-3.5-turbo-16k-0613新模型，支持函数调用功能。  
 
 ### 使用[chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)项目配置
