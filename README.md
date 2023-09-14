@@ -17,6 +17,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2023-09-13: 加入常用提示词prompt集合，[常用提示词集合-chatkore](https://www.chatkore.com/prompt/prompt.html)  
 2023-08-29: 加入本地知识库示例，目录：examples/ChatDemo/  
 2023-08-20: 新版AI对话机器人上线，[新版AI对话机器人-chatkore](https://www.chatkore.com/newchat)  
 2023-07-31: 加入数据分析机器人示例，目录：examples/analysisBot/  
