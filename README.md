@@ -29,165 +29,86 @@ example中的详细说明请关注：
 - 设置OPENAI_API_BASE_URL环境变量为：https://api.chatkore.com/v1
 - 由于网络延迟，建议把TIMEOUT_MS设置为180000或者更高
 
-### chatkore-API接入文档
-##### API介绍
-API通过HTTP请求调用。每次请求，需要在HTTP头中携带用户的Token，用于认证。当认证成功，系统会检查用户账户余额，如果余额不足，则返回错误。
+### 常见软件/插件使用方法
 
-##### HTTP请求认证
-所有HTTP请求使用API Token进行认证。用户注册后，可以在首页找到自己的Token。在每一次API请求时，将Token带在Header中进行认证。请保护好你的Token！不要将自己的Token共享给他人或直接保存在客户端的代码中。
-所有API请求都应该包括API Token在Authorization HTTP Header中，比如：
-> Authorization: Bearer YOUR_API_TOKEN
+##### **python openai官方库（使用AutoGPT，langchain等）**
+示例代码请参考[demo.py](./examples/pythonDemo/demo.py)
 
-##### 请求示例
-以下是一个API请求的示例。记住将$API_TOKEN替换为你自己的API Key。
-curl：
-```
-curl https://api.chatkore.com/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -H "Authorization:  Bearer $API_TOKEN" \
-    -d '{
-        "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": "Say this is a test!"}],
-        "temperature": 0.7
-    }'
-```
-      
-Python：
-```
-import requests
-URL = 'https://api.chatkore.com/v1/chat/completions'
-resp = requests.post(URL, json={
-    'model': 'gpt-3.5-turbo',
-    'messages': [{'role': 'user', 'content': '回复这是一个测试'}],
-    'temperature': 0,
-}, headers={
-    'Authorization': " Bearer $API_TOKEN"
-})
-print(resp.json())
-```
-      
-这个请求将调用gpt-3.5-turbo模型，完成对话。你将会得到类似如下的返回结果：
-```
-{
-  "id":"chatcmpl-abc123",
-  "object":"chat.completion",
-  "created":1677858242,
-  "model":"gpt-3.5-turbo-0301",
-  "usage":{
-      "prompt_tokens":13,
-      "completion_tokens":7,
-      "total_tokens":20
-  },
-  "choices":[
-      {
-        "message":{
-            "role":"assistant",
-            "content":"\n\nThis is a test!"
-        },
-        "finish_reason":"stop",
-        "index":0
-      }
-  ]
-}
-```
-      
-### 主要接口介绍-聊天
-##### 聊天对话
-给定一个聊天对话，模型将返回一个聊天回答响应。
-创建聊天对话
-> POST https://api.chatkore.com/v1/chat/completions
+***方法一***
 
-##### 请求参数
-**model** 类型: string必填  
-要使用的模型ID。您可以使用"列出所有模型"API查看所有可用的模型，或查看我们的Model overview了解它们的描述。  
-**messages** 类型: array必填  
-生成聊天的提示消息，格式为JSON对象，包含以下字段：  
-role：角色，可以是system，assitant，或者是user  
-content：信息的内容  
-**temperature** 类型: float可选 默认: 1  
-要使用的采样温度，介于0和2之间。较高的值（例如0.8）会使输出更随机，而较低的值（例如0.2）会使其更加集中和确定性。  
-**top_p** 类型: float可选 默认: 1  
-与温度一起采样的替代方法，称为核心采样，其中模型考虑具有top_p概率质量的令牌的结果。因此，0.1表示仅考虑组成前10％概率质量的令牌。  
-**n** 类型: int可选 默认: 1  
-要为每个提示生成的答案数。  
-**max_tokens** 类型: int可选 默认: inf  
-对话最多可以生成的令牌数。  
-**presence_penalty** 类型: float可选 默认: 0  
-介于-2.0和2.0之间的数字。正值会根据新令牌是否出现在迄今为止的文本中对其进行惩罚，增加模型谈论新主题的可能性。  
-**frequency_penalty** 类型: float可选 默认: 0  
-介于-2.0和2.0之间的数字。正值会根据迄今为止的文本中的现有频率惩罚新令牌，降低模型重复同一行的可能性。  
-
-### 主要接口介绍-模型
-##### 列出所有模型
-列出所有可以使用的模型，以及模型的基本信息。想了解模型可以做什么，模型间有什么不同，请参考OpenAI文档。
-> GET https://api.chatkore.com/v1/models
-
-### 主要接口介绍-文本转向量
-##### 文本转向量 Embeddings
-计费说明：text-embedding-ada-002 模型的 Token 价格是 gpt-3.5-turbo 的六分之一，我们已动态折算为积分，请以积分为准。每次请求最低消费 4积分。
-> POST https://api.chatkore.com/v1/embeddings
-Node.js示例
-```
-const fetch = require("node-fetch");
-fetch("https://api.chatkore.com/v1/embeddings", {
-  method: "POST",
-  headers: {
-    Authorization: "Bearer 你的api_key",
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    input: "哈哈哈哈哈",
-    model: "text-embedding-ada-002",
-  }),
-});
-```
-##### 请求参数
-**model** 类型: string必填  
-固定为 text-embedding-ada-002 专用于文本转向量  
-**input** 类型: string 或者 array
-输入要嵌入的文本，编码为字符串或令牌数组。要在单个请求中嵌入多个输入，请传递字符串数组或令牌数组。每个输入不得超过模型的最大输入标记（text-embedding-ada-002为8191个标记）。  
-返回示例
-```
-{
-    "object": "list",
-    "data": [
-    {
-        "object": "embedding",
-        "embedding": [
-            0.0023064255,
-            -0.009327292,
-            .... (1536 floats total for ada-002)
-            -0.0028842222,
-        ],
-        "index": 0
-    }
-    ],
-    "model": "text-embedding-ada-002",
-    "usage": {
-        "prompt_tokens": 8,
-        "total_tokens": 8
-    }
-}
+```python
+import openai
+openai.api_base = "https://api.chatkore.com/v1"
 ```
 
-### 主要接口介绍-会话补充
-##### 会话补完
-会话补完是指根据用户的输入，自动补全对话。这个功能可以用于聊天机器人、自动问答等场景。
-创建补完对话
-> POST https://api.chatkore.com/v1/completions
+***方法二（方法一不起作用用这个）***
 
-##### 请求参数
-**model** 类型: string必填  
-要使用的模型ID。您可以使用"列出所有模型"API查看所有可用的模型，或查看我们的Model overview了解它们的描述。  
-**prompt** 类型: string或者array可选  
-要生成对话的提示，编码为字符串、字符串数组、令牌数组或令牌数组的数组。  
-**suffix** 类型: string可选  
-插入文本完成后的后缀。  
-**max_tokens** 类型: int可选 默认: 16  
-对话最多可以生成的令牌数。  
-**temperature** 类型: float可选 默认: 1  
-要使用的采样温度，介于0和2之间。较高的值（例如0.8）会使输出更随机，而较低的值（例如0.2）会使其更加集中和确定性。  
-**top_p** 类型: float可选 默认: 1  
-与温度一起采样的替代方法，称为核心采样，其中模型考虑具有top_p概率质量的令牌的结果。因此，0.1表示仅考虑组成前10％概率质量的令牌。  
-**n** 类型: int可选 默认: 1  
-要为每个提示生成的答案数。
+修改环境变量OPENAI_API_BASE，各个系统怎么改环境变量请自行搜索，修改环境变量后不起作用请重启系统。
+```bash
+OPENAI_API_BASE=https://api.chatkore.com/v1
+```
+##### **开源gpt_academic**
+找到`config.py`文件中的`API_URL_REDIRECT`配置并修改为以下内容：
+```python
+API_URL_REDIRECT = {"https://api.openai.com/v1/chat/completions": "https://api.chatkore.com/v1/chat/completions"}
+```
+
+##### **ChatBox(推荐使用)**
+
+ChatGPT开源桌面应用，支持全部桌面平台。
+
+下载链接：https://github.com/Bin-Huang/chatbox/releases
+
+使用方法：如图在设置中填入购买的密钥，并将代理设置为`https://api.chatkore.com`即可
+
+![](images/chatbox.png)
+
+
+##### **浏览器插件ChatGPT Sidebar**
+
+官网链接：https://chatgpt-sidebar.com/
+
+安装好插件后进入设置页面，如图所示修改设置，将url修改为 `https://api.chatkore.com` 。
+
+![](images/sidebar.png)
+
+##### **Jetbrains插件ChatGPT - Easycode**
+<img src="./images/jet1.png" width='200'/>
+
+安装好插件后在Settings > Tools > OpenAI > GPT 3.5 Turbo中如图所示配置好插件，重点要将Server Settings 修改为 `https://api.chatkore.com/v1/chat/completions` 。并勾选Customize Server。
+
+![](images/jet2.png)
+
+
+##### **VSCode插件Code GPT**
+<img src="./images/codegpt1.png" width='300'/>
+
+这个插件修改Host相对麻烦一些，需要修改源码才可以使用。
+
+1. 安装插件。安装好后按Ctrl+Shift+P，弹出框中输入Open Extensions Floder
+![](images/codegpt2.png)
+
+2. 点击Extensions: Open Extensions Floder，这将打开插件目录，找到Code GPT的文件夹。
+![](images/codegpt3.png)
+
+3. 打开后进入打开文件./src/clients/openai_client.js，搜索文件中的api.openai.com，并替换为 `api.chatkore.com`。保存文件。
+![](images/codegpt4.png)
+
+4. 再次回到vscode，按Ctrl+Shift+P，弹出框中输入CodeGPT: Set API KEY，点击CodeGPT: Set API KEY。然后将购买的Key输入进去即可。
+![](images/codegpt5.png)
+
+5. 以上步骤完成后，重启VSCode
+
+- 其他VSCode插件类似。
+
+##### **Raycast 插件 ChatGPT（推荐使用）**
+
+1. 在 Raycast Store 中找到 ChatGPT 插件，并按照提示安装：
+![](images/raycast1.png)
+
+2. 安装完成后在该插件配置中的 `API Key` 中填入我们的API Key，以及选中 `Change API Endpoint`，并在 `API Endpoint` 中填入 `https://api.chatkore.com/v1`
+![](images/raycast2.png)
+![](images/raycast3.png)
+
+3. 🍺 enjoy it~
+![](images/raycast4.gif)
