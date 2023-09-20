@@ -1,6 +1,6 @@
 <div align="center">
 <img src="./images/logo.png" alt="icon" width="50px"/>
-<h1 align="center">GPT-API-free</h1>
+<h1 align="center">GPT-API-ChatKore</h1>
 
 支持 **GPT-4** / GPT-3.5-Turbo / GPT-3.5-Turbo-16K / embeddings  
 chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。  
