@@ -6,6 +6,7 @@
 chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。  
 有任何问题请加QQ群联系客服：群号[742077418](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=tUZP9cQ-wRDjYNMwZjvs7maNyixcIYB5&authKey=dzF1K7fXUdg%2BMf8zLoPp9L%2F9bvhkoVpyWQoZoEFW0WLeinAmx2OOHBGZfqAjrikl&noverify=0&group_code=742077418)  
 官网：[https://www.chatkore.com](https://www.chatkore.com)  
+API文档：[chatkore API文档](https://chatkore.apifox.cn)  
 免部署版网页端现已上线：[AI对话机器人-chatkore](https://www.chatkore.com/newchat)，支持GPT3.5和GPT4切换，GPT4没有每3小时25条消息限制。无需代理，国内网络即可体验，注册即送100积分。  
 example中的详细说明请关注：  
 知乎号：[chatkore](https://www.zhihu.com/people/2f25274935e6eb5be025ccf0abb1d724 "chatkore知乎号")  
@@ -22,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2023-11-11: 支持dall-e-2, dall-e-3模型  
 2023-11-07: 支持最新gpt-3.5-turbo-1106,gpt-4-1106-preview模型，该模型默认支持16k上下文  
 2023-09-13: 加入常用提示词prompt集合，[常用提示词集合-chatkore](https://www.chatkore.com/prompt/prompt.html)  
 2023-08-29: 加入本地知识库示例，目录：examples/chat_demo/  
