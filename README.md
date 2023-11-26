@@ -23,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2023-11-26: 支持gpt-4-vision-preview, tts, whisper模型  
 2023-11-11: 支持dall-e-2, dall-e-3模型  
 2023-11-07: 支持最新gpt-3.5-turbo-1106,gpt-4-1106-preview模型，该模型默认支持16k上下文  
 2023-09-13: 加入常用提示词prompt集合，[常用提示词集合-chatkore](https://www.chatkore.com/prompt/prompt.html)  
