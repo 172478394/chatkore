@@ -23,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2024-01-17: 新增开发者工具站点，[开发者工具箱-chatkore](https://it-tools.chatkore.com)  
 2023-12-05: 支持图片编辑、图片伪原创api  
 2023-12-02: 加入网页版AI绘画功能  
 2023-11-26: 支持gpt-4-vision-preview, tts, whisper模型  
