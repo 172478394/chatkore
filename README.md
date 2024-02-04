@@ -23,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2024-02-04: 支持gpt-3.5-turbo-0125模型  
 2024-01-27: 支持text-embedding-3-small, text-embedding-3-large, gpt-4-0125-preview模型  
 2024-01-19: 全新GPT对话站点，[随便聊聊-chatkore](https://liao.chatkore.com)  
 2024-01-17: 新增开发者工具站点，[开发者工具箱-chatkore](https://it-tools.chatkore.com)  
