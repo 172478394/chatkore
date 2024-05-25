@@ -2,7 +2,7 @@
 <img src="./images/logo.png" alt="icon" width="50px"/>
 <h1 align="center">GPT-API-ChatKore</h1>
 
-支持 gpt-4-turbo-preview / gpt-4-vision-preview / dall-e-3 / gpt-3.5-turbo / audio / embeddings  
+支持 gpt-4-turbo / gpt-4o / dall-e-3 / gpt-3.5-turbo / audio / embeddings  
 chatkore本意即为开发者提供优质稳定的OpenAI相关的API调用接口，方便国内用户使用各类开源ChatGPT项目或者AI领域的库的使用。  
 有任何问题请加QQ群联系客服：群号[742077418](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=tUZP9cQ-wRDjYNMwZjvs7maNyixcIYB5&authKey=dzF1K7fXUdg%2BMf8zLoPp9L%2F9bvhkoVpyWQoZoEFW0WLeinAmx2OOHBGZfqAjrikl&noverify=0&group_code=742077418)  
 官网：[https://www.chatkore.com](https://www.chatkore.com)  
@@ -23,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2024-05-13: 支持gpt-4o, gpt-4o-2024-05-13模型, 价格更优惠  
 2024-04-11: 支持gpt-4-turbo, gpt-4-turbo-2024-04-09模型  
 2024-02-04: 支持gpt-3.5-turbo-0125模型  
 2024-01-27: 支持text-embedding-3-small, text-embedding-3-large, gpt-4-0125-preview模型  
