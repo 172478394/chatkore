@@ -23,6 +23,7 @@ example中的详细说明请关注：
 - 新增对Embeddings支持，可以用接口运行AutoGPT等应用。
 
 ### 变更日志
+2025-07-12: 支持claude-sonnet-4, gemini-2.5-pro, grok-4模型  
 2025-04-15: 支持o3, gpt-4.1, gpt-4.1-mini模型  
 2024-11-21: 支持o1-preview, o1-mini, o1-preview-2024-09-12, o1-mini-2024-09-12, gpt-4o-2024-11-20模型  
 2024-07-19: 支持gpt-4o-mini, gpt-4o-mini-2024-07-18模型, 可作为3.5的替代模型  
